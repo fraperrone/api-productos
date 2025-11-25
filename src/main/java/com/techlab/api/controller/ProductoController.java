@@ -35,7 +35,7 @@ public class ProductoController {
     }
 
     @PutMapping("/{id}")
-    public Producto actualizarProducto(@PathVariable long id, @PathVariable Producto producto){
+    public Producto actualizarProducto(@PathVariable long id, @RequestBody Producto producto){
         producto.setId(id);
         return productoService.actualizarProducto(producto);
     }

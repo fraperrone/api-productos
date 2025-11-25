@@ -1,35 +1,32 @@
 package com.techlab.api;
 
 import com.techlab.api.controller.ProductoController;
-import com.techlab.api.repository.ProductoRepository;
-import com.techlab.api.service.IProductoService;
+import com.techlab.api.service.ProductoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-
 
 @WebMvcTest(ProductoController.class)
 class ProductoControllerUnitTest {
 
-	@Autowired
-	private MockMvc mockMvc;
+    @Autowired
+    private MockMvc mockMvc;
 
-	@MockBean
-	private IProductoService productoService; // mockeás el servicio
+    @MockBean
+    private ProductoService productoService;
 
-	@Test
-	void listarProductosDevuelve200() throws Exception {
-		mockMvc.perform(get("/api/productos"))
-				.andExpect(status().isOk());
-	}
+    @Test
+    void listarProductosDevuelve200() throws Exception {
+        // Simulamos que el servicio devuelve una lista
+
+        mockMvc.perform(get("/api/productos"))
+                .andExpect(status().isOk());
+    }
 }
 
 
