@@ -1,7 +1,5 @@
-package com.techlab.api.controller;
+package com.techlab.api.producto;
 
-import com.techlab.api.model.Producto;
-import com.techlab.api.service.ProductoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

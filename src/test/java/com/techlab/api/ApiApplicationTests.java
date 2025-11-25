@@ -1,7 +1,7 @@
 package com.techlab.api;
 
-import com.techlab.api.controller.ProductoController;
-import com.techlab.api.service.ProductoService;
+import com.techlab.api.producto.ProductoController;
+import com.techlab.api.producto.ProductoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

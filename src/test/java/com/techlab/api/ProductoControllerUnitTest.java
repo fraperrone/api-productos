@@ -1,7 +1,7 @@
 package com.techlab.api;
 
-import com.techlab.api.model.Producto;
-import com.techlab.api.repository.ProductoRepository;
+import com.techlab.api.producto.Producto;
+import com.techlab.api.producto.ProductoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

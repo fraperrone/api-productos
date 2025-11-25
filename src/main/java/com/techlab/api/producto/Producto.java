@@ -1,4 +1,4 @@
-package com.techlab.api.model;
+package com.techlab.api.producto;
 
 import jakarta.persistence.*;
 import lombok.*;

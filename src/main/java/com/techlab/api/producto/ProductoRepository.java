@@ -1,6 +1,5 @@
-package com.techlab.api.repository;
+package com.techlab.api.producto;
 
-import com.techlab.api.model.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

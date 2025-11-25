@@ -1,14 +1,12 @@
-package com.techlab.api.service;
+package com.techlab.api.producto;
 
-import com.techlab.api.model.Producto;
-import com.techlab.api.repository.ProductoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductoService implements IProductoService{
+public class ProductoService implements IProductoService {
 
     private final ProductoRepository productoRepository;
 

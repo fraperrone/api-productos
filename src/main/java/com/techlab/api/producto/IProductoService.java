@@ -1,6 +1,4 @@
-package com.techlab.api.service;
-
-import com.techlab.api.model.Producto;
+package com.techlab.api.producto;
 
 import java.util.List;
 import java.util.Optional;
