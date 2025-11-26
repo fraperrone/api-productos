@@ -7,4 +7,5 @@ import java.util.Optional;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     // Spring Data JPA genera la query automáticamente
     Optional<Usuario> findByEmail(String email);
+    Optional<Usuario> findByEmailAndPassword(String email, String password);
 }

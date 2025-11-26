@@ -18,35 +18,14 @@ public class UsuarioService {
         this.pedidoRepository = pedidoRepository;
     }
 
-    // Crear usuario
-    public Usuario crearUsuario(Usuario usuario) {
-        return usuarioRepository.save(usuario);
+
+    public Usuario login(String email, String password) {
+        return usuarioRepository.findByEmailAndPassword(email, password)
+                .orElse(null);
     }
 
-    // Listar todos los usuarios
-    public List<Usuario> listarUsuarios() {
-        return usuarioRepository.findAll();
-    }
 
-    // Buscar usuario por ID
-    public Usuario obtenerUsuarioPorId(Long id) {
-        return usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con id: " + id));
-    }
 
-    // Buscar usuario por email
-    public Usuario obtenerUsuarioPorEmail(String email) {
-        return usuarioRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con email: " + email));
-    }
-
-    // Eliminar usuario
-    public void eliminarUsuario(Long id) {
-        if (!usuarioRepository.existsById(id)) {
-            throw new RuntimeException("Usuario no encontrado con id: " + id);
-        }
-        usuarioRepository.deleteById(id);
-    }
 
     //listar pedido por usuario
     // Listar pedidos de un usuario por id
