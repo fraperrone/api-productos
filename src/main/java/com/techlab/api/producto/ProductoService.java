@@ -32,11 +32,17 @@ public class ProductoService implements IProductoService {
 
     @Override
     public Producto actualizarProducto(Producto producto) {
+        if(productoRepository.findById(producto.getId()).isEmpty()){
+            throw new ProductoNotFoundException(producto.getId());
+        }
         return productoRepository.save(producto);
     }
 
     @Override
     public void eliminarProducto(long id) {
-        productoRepository.deleteById(id);
+        if(productoRepository.findById(id).isEmpty()) {
+            throw new ProductoNotFoundException(id);
+        }
+         productoRepository.deleteById(id);
     }
 }

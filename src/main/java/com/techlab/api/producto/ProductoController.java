@@ -1,9 +1,11 @@
 package com.techlab.api.producto;
 
+import jakarta.persistence.Entity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -40,6 +42,16 @@ public class ProductoController {
     public Producto actualizarProducto(@PathVariable long id, @RequestBody Producto producto){
         producto.setId(id);
         return productoService.actualizarProducto(producto);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Map<String, String>> eliminarProductoPorId(@PathVariable Long id){
+            productoService.eliminarProducto(id);
+            Map<String, String> body = Map.of("Message", "Eliminado correctamente");
+            return ResponseEntity.ok(body);
+
+
     }
 
 }
