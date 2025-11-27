@@ -1,5 +1,6 @@
 package com.techlab.api.producto;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,9 +24,12 @@ public class ProductoController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Producto> obtenerDetalles(@PathVariable long id){
-        return productoService.obtenerDeatallesProducto(id);
+    public ResponseEntity<Producto> obtenerDetalles(@PathVariable long id) {
+        return productoService.obtenerDeatallesProducto(id)
+                .map(ResponseEntity::ok)
+                .orElseThrow(() -> new ProductoNotFoundException(id));
     }
+
 
     @PostMapping
     public Producto agregarProducto(@RequestBody Producto producto){
