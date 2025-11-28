@@ -1,9 +1,9 @@
 package com.techlab.api.pedido;
 
 
-import com.techlab.api.exception.ProductoNoEncontradoException;
 import com.techlab.api.exception.StockInsuficienteException;
 import com.techlab.api.producto.Producto;
+import com.techlab.api.exception.ProductoNotFoundException;
 import com.techlab.api.producto.ProductoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,7 +33,7 @@ public class PedidoService {
         for (PedidoProductoDTO dto : request.getItemsPedidos()) {
             // Buscar el producto en la DB
             Producto producto = productoRepository.findById(dto.getProductoId())
-                    .orElseThrow(() -> new ProductoNoEncontradoException("Producto no encontrado con id: " + dto.getProductoId()));
+                    .orElseThrow(() -> new ProductoNotFoundException(dto.getProductoId()));
 
             // Validar stock
             if (producto.getStock() < dto.getCantidad()) {

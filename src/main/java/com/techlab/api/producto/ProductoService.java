@@ -1,5 +1,6 @@
 package com.techlab.api.producto;
 
+import com.techlab.api.exception.ProductoNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
